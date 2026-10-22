@@ -1,0 +1,176 @@
+@import "tailwindcss";
+
+:root {
+  --ivory: #f7f4ef;
+  --ivory-deep: #efe9e0;
+  --sand: #e4d8c8;
+  --stone: #b9ad9c;
+  --ink: #1a1816;
+  --graphite: #3d3a36;
+  --muted: #6f6a63;
+  --silver: #9a948a;
+  --gold: #a89070;
+  --gold-soft: #c4b09a;
+  --line: rgba(26, 24, 22, 0.12);
+  --background: var(--ivory);
+  --foreground: var(--ink);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-ivory: var(--ivory);
+  --color-ivory-deep: var(--ivory-deep);
+  --color-sand: var(--sand);
+  --color-stone: var(--stone);
+  --color-ink: var(--ink);
+  --color-graphite: var(--graphite);
+  --color-muted: var(--muted);
+  --color-silver: var(--silver);
+  --color-gold: var(--gold);
+  --color-gold-soft: var(--gold-soft);
+  --color-line: var(--line);
+  --font-sans: var(--font-sans);
+  --font-serif: var(--font-serif);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), system-ui, sans-serif;
+}
+
+::selection {
+  background: color-mix(in srgb, var(--gold) 35%, transparent);
+}
+
+.font-serif {
+  font-family: var(--font-serif), Georgia, serif;
+}
+
+.texture-bg {
+  background-color: var(--ivory);
+  background-image:
+    radial-gradient(ellipse 80% 50% at 10% -10%, rgba(168, 144, 112, 0.12), transparent),
+    radial-gradient(ellipse 60% 40% at 100% 0%, rgba(228, 216, 200, 0.55), transparent),
+    linear-gradient(180deg, var(--ivory) 0%, var(--ivory-deep) 100%);
+}
+
+.hero-plane {
+  background:
+    linear-gradient(
+      105deg,
+      rgba(26, 24, 22, 0.72) 0%,
+      rgba(26, 24, 22, 0.35) 45%,
+      rgba(26, 24, 22, 0.15) 100%
+    ),
+    linear-gradient(160deg, #2a2520 0%, #4a4036 40%, #8a7a68 100%);
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.9rem 1.6rem;
+  background: var(--ink);
+  color: var(--ivory);
+  font-size: 0.8rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  transition: background 0.25s ease, transform 0.25s ease;
+}
+
+.btn-primary:hover {
+  background: var(--graphite);
+}
+
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.9rem 1.6rem;
+  border: 1px solid color-mix(in srgb, var(--ivory) 55%, transparent);
+  color: var(--ivory);
+  font-size: 0.8rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  transition: background 0.25s ease, border-color 0.25s ease;
+}
+
+.btn-ghost:hover {
+  background: color-mix(in srgb, var(--ivory) 10%, transparent);
+  border-color: var(--ivory);
+}
+
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.85rem 1.5rem;
+  border: 1px solid var(--ink);
+  color: var(--ink);
+  font-size: 0.8rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  transition: background 0.25s ease, color 0.25s ease;
+}
+
+.btn-outline:hover {
+  background: var(--ink);
+  color: var(--ivory);
+}
+
+.reveal {
+  animation: reveal-up 0.8s ease both;
+}
+
+.reveal-delay-1 {
+  animation-delay: 0.12s;
+}
+
+.reveal-delay-2 {
+  animation-delay: 0.24s;
+}
+
+.reveal-delay-3 {
+  animation-delay: 0.36s;
+}
+
+@keyframes reveal-up {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .reveal-delay-1,
+  .reveal-delay-2,
+  .reveal-delay-3 {
+    animation: none;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+.hairline {
+  border-color: var(--line);
+}
+
+.mobile-action-bar {
+  padding-bottom: env(safe-area-inset-bottom);
+}
